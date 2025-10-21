@@ -3,16 +3,18 @@ package main
 import (
 	"github.com/gin-gonic/gin"
 	"net/http"
+	"time"
 )
 
+// write temporary hardcoded data
+var journalEntries = []models.JournalEntry{
+	{ID: 1, Content: "Draft first API endpoint", Type: "Task", Timestamp: time.Now()},
+	{ID: 2, Content: "Yulia Class", Type: "Event", Timestamp: time.Now().Add(time.Hour * 2)},
+	{ID: 3, Content: "Having a wonderful day", Type: "Journal", Timestamp: time.Now().Add(time.Hour * 2)},
+}
 //Handler for the /entries route
-//
-
 func getEntries(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{
-		"message": "Welcome to GoJo Your Online Bullet Journal",
-		"entries": []string{},
-	})
+	c.JSON(http.StatusOK, journalEntries)
 }
 
 func main() {
