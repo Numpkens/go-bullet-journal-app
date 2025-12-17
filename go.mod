@@ -1,4 +1,4 @@
-module github.com/Numpkens/go-bullet-journal-app
+module go-bullet-journal-app
 
 go 1.25.2
 
